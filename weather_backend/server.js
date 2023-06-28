@@ -1,6 +1,6 @@
 import http from 'http';
 import { port } from './config.js';
-import { handleRoutes } from './modules/routes.js';
+import { handleRoutes } from './routes/routes.js';
 
 const server = http.createServer((request, response) => {
     try {

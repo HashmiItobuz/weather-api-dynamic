@@ -4,30 +4,31 @@ const locationTemp = document.getElementById("temperature");
 const feelsLike = document.getElementById("feelsLike");
 const weatherImg = document.getElementById("weatherImage");
 const weatherDescription = document.querySelector(".weather-description");
-const currWidth = weatherImg.clientWidth;
 
 let value = "";
+let response = { success: true };
+
 weatherDescription.classList.add("hidden");
-let res = { success: true };
+
 async function getData() {
     try {
-        res = await fetch(`http://localhost:8900/${inputValue.value}`).then((res) => res.json());
+        response = await fetch(`http://localhost:8900/${inputValue.value}`).then((response) => response.json());
     } catch (error) {
-        res.success = false
+        response.success = false
         console.log(error);
     }
     finally {
-        if (res.success === true) {
+        if (response.success === true) {
             weatherImg.classList.add("weather-img");
             weatherDescription.classList.remove("hidden");
             locationTemp.classList.remove("error-font-size");
             weatherImg.classList.remove("error-img");
-            placeName.innerHTML = res.data.name;
-            locationTemp.innerHTML = res.data.temp_c + "<sup>o</sup>";
-            feelsLike.innerHTML = "Feels " + res.data.feelslike_f + "<sup>o</sup>";
-            if (res.data.temp_c >= 40) {
+            placeName.innerHTML = response.data.name;
+            locationTemp.innerHTML = response.data.temp_c + "<sup>o</sup>";
+            feelsLike.innerHTML = "Feels " + response.data.feelslike_f + "<sup>o</sup>";
+            if (response.data.temp_c >= 40) {
                 weatherImg.src = "images/sunny.png";
-            } else if (res.data.temp_c >= 20) {
+            } else if (response.data.temp_c >= 20) {
                 weatherImg.src = "images/sun_behind.png";
             } else {
                 weatherImg.src = "images/rain.png";

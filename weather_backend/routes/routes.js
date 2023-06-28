@@ -1,4 +1,4 @@
-import { getWeatherData } from "./getWeatherData.js";
+import { getWeatherData } from "../modules/getWeatherData.js";
 export const handleRoutes = (request) => {
     try {
         const result = getWeatherData(request.url);

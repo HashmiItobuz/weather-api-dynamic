@@ -23,7 +23,7 @@ input {
     width: 13rem;
 }
 
-.loc-temp {
+.location-temperature {
     font-size: 4rem;
     margin-bottom: 0px;
 }
@@ -49,7 +49,7 @@ input {
         font-size: 1.4rem;
     }
 
-    .icon {
+    .input-icon {
         height: 2rem;
     }
 

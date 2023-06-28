@@ -1,4 +1,4 @@
-import { weatherData } from "../weather.js";
+import { weatherData } from "../database/weather.js";
 
 export const getWeatherData = (locationString) => {
     let location = locationString.split('/')[1].toLowerCase();
